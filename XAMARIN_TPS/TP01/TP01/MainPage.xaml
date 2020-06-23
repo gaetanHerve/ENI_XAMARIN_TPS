@@ -14,13 +14,10 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <!-- Header Menu -->
-        <StackLayout Orientation="Horizontal" BackgroundColor="#58B0F0" Grid.Row="0" Grid.ColumnSpan="4"
+        <StackLayout Orientation="Horizontal" BackgroundColor="#58B0F0" Grid.Row="0"
                      VerticalOptions="Fill" HorizontalOptions="Fill" Padding="10, 25">
             <Label Text="Nouveau" HorizontalOptions="StartAndExpand"
                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
@@ -34,11 +31,11 @@
         </StackLayout>
 
         <!-- Posts -->
-        <ScrollView Grid.Row="1" Grid.ColumnSpan="4">
+        <ScrollView Grid.Row="1">
             <StackLayout>
+                <!-- Post 1 -->
                 <StackLayout Orientation="Vertical" VerticalOptions="Start"
                     Margin="10, 10">
-                    
                     <!-- Author's Name, id and post date -->
                     <StackLayout Orientation="Horizontal" VerticalOptions="Start" Margin="10" HorizontalOptions="FillAndExpand">
                         <Label Text="Mélanie"
@@ -63,7 +60,8 @@
                     </StackLayout>
                     <BoxView BackgroundColor="LightGray" HeightRequest="2"></BoxView>
                 </StackLayout>
-                
+
+                <!-- Post 2 -->
                 <StackLayout Orientation="Vertical" VerticalOptions="Start"
                     Margin="10, 10">
                     <!-- Author's Name, id and post date -->
@@ -95,19 +93,30 @@
         </ScrollView>
 
         <!-- Footer Menu -->
-        <BoxView BackgroundColor="LightGray" Grid.Row="2" Grid.ColumnSpan="4"></BoxView>
-        <Label Text="Fil" Grid.Row="2" Grid.Column="0"
-            VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
-            TextColor="Gray"></Label>
-        <Label Text="Notifications" Grid.Row="2" Grid.Column="1"
-            VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
-            TextColor="Gray"></Label>
-        <Label Text="Messages" Grid.Row="2" Grid.Column="2"
-            VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
-            TextColor="Gray"></Label>
-        <Label Text="Moi" Grid.Row="2" Grid.Column="3"
+        <Grid Grid.Row="2" BackgroundColor="LightGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Label Text="Fil" Grid.Row="0" Grid.Column="0"
                 VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
                 TextColor="Gray"></Label>
+            <Label Text="Notifications" Grid.Row="0" Grid.Column="1"
+                VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                TextColor="Gray"></Label>
+            <Label Text="Messages" Grid.Row="0" Grid.Column="2"
+                VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                TextColor="Gray"></Label>
+            <Label Text="Moi" Grid.Row="0" Grid.Column="3"
+                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                    TextColor="Gray"></Label>
+        </Grid>
     </Grid>
 
 </ContentPage>
