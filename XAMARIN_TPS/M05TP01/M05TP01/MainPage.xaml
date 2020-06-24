@@ -83,6 +83,9 @@
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
                                     <ContentView BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
+                                    <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                                           Source="https://picsum.photos/50/50/?random"
+                                           Aspect="Fill"></Image>
                                     <Label Text="Antoine" Grid.Row="0" Grid.Column="1"></Label>
                                     <Label Text="@AntoineTweet" Grid.Row="0" Grid.Column="2"></Label>
                                     <Label Text="50s" TextColor="Gray" Grid.Row="0" Grid.Column="3"></Label>
