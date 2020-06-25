@@ -1,4 +1,4 @@
-﻿using M07_TP04.Models;
+﻿using M08_TP05.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace M07_TP04
+namespace M08_TP05
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
