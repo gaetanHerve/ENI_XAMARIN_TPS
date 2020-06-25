@@ -17,14 +17,13 @@ namespace M05TP01.Models
         public LoginForm(Entry login,
             Entry password,
             Switch isReminded,
-            VisibilitySwitch visibilitySwitch,
-            ErrorForm errorForm)
+            VisibilitySwitch visibilitySwitch)
         {
             Login = login;
             Password = password;
             IsReminded = isReminded;
             VisibilitySwitch = visibilitySwitch;
-            ErrorForm = errorForm;
+            ErrorForm = new ErrorForm();
         }
 
         public Boolean IsValid()

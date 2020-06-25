@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -22,19 +23,15 @@ namespace M05TP01
             loginForm = new LoginForm(this.login,
                 this.password,
                 this.isReminded,
-                new VisibilitySwitch(),
-                new ErrorForm());
+                new VisibilitySwitch());
         }
 
         private void connectionBtn_Clicked(object sender, EventArgs e)
         {
-            Console.WriteLine("BUTTON CLICKED");
+            Debug.WriteLine("BUTTON CLICKED");
             if(this.loginForm.IsValid())
             {
                 this.connectionForm.IsVisible = false;
-                // TODO : Remove form to avoid empty space when displaying posts
-                /*this.mainGrid.Children.Remove(this.connectionForm);
-                this.mainGrid.RowDefinitions.Remove(this.row2);*/
                 this.posts.IsVisible = true;
             } else
             {

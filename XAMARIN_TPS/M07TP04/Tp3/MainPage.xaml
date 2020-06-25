@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:utils="clr-namespace:M05TP01.Utils"
+             xmlns:utils="clr-namespace:Tp3.Utils"
              mc:Ignorable="d"
-             x:Class="M05TP01.MainPage">
+             x:Class="Tp3.MainPage">
 
     <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
-            <RowDefinition Height="7*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="7*"/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
@@ -29,25 +29,25 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ImageButton Source="{utils:ImageFromResources M05TP01.Images.pencil.png}" Grid.Row="0" Grid.Column="0"></ImageButton>
+                <ImageButton Source="{utils:ImageFromResources Tp3.Images.pencil.png}" Grid.Row="0" Grid.Column="0"></ImageButton>
                 <Label Grid.Row="0" Grid.Column="1" TextColor="White" Text="Accueil" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
-                <ImageButton Source="{utils:ImageFromResources M05TP01.Images.search.png}" Grid.Row="0" Grid.Column="2"></ImageButton>
+                <ImageButton Source="{utils:ImageFromResources Tp3.Images.search.png}" Grid.Row="0" Grid.Column="2"></ImageButton>
             </Grid>
         </ContentView>
-        <ContentView x:Name="connectionForm" IsVisible="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+        <ContentView x:Name="loginForm" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
             <StackLayout>
                 <Label Text="Connexion à twitter" TextColor="Gray" HorizontalOptions="CenterAndExpand"></Label>
                 <Entry x:Name="login" Placeholder="Identifiant twitter" HorizontalOptions="FillAndExpand"/>
                 <Entry x:Name="password" Placeholder="Mot de passe" IsPassword="True" HorizontalOptions="FillAndExpand"/>
                 <StackLayout Orientation="Horizontal">
-                    <Switch x:Name="isReminded"/>
+                    <Switch x:Name="isRemind"/>
                     <Label Text="Mémoriser mes informations" TextColor="Gray" VerticalOptions="CenterAndExpand"/>
                 </StackLayout>
-                <Button x:Name="connectionBtn"  Text="SE CONNECTER" HorizontalOptions="FillAndExpand" Clicked="connectionBtn_Clicked"/>
-                <Label x:Name="error" TextColor="Red" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" IsVisible="False"></Label>
+                <Label x:Name="errorLabel"/>
+                <Button x:Name="connection" Text="SE CONNECTER" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
         </ContentView>
-        <ContentView x:Name="posts" IsVisible="false" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+        <ContentView x:Name="tweetForm" IsVisible="false" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
             <!--<ScrollView HorizontalOptions="FillAndExpand">-->
             <ScrollView>
                 <!--<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
@@ -80,9 +80,9 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                             <ContentView>
                                 <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
                                 <StackLayout Orientation="Horizontal" HeightRequest="30">
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.reply.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.retweet.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.favorite.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.reply.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.retweet.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.favorite.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
                                 </StackLayout>
                             </ContentView>
                         </StackLayout>
@@ -115,9 +115,9 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                             <ContentView>
                                 <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
                                 <StackLayout Orientation="Horizontal">
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.reply.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.retweet.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.favorite.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.reply.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.retweet.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.favorite.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
                                 </StackLayout>
                             </ContentView>
                         </StackLayout>
@@ -149,9 +149,9 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                             <ContentView>
                                 <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
                                 <StackLayout Orientation="Horizontal">
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.reply.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.retweet.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.favorite.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.reply.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.retweet.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.favorite.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
                                 </StackLayout>
                             </ContentView>
                         </StackLayout>
@@ -183,9 +183,9 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                             <ContentView>
                                 <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
                                 <StackLayout Orientation="Horizontal">
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.reply.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.retweet.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.favorite.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.reply.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.retweet.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.favorite.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
                                 </StackLayout>
                             </ContentView>
                         </StackLayout>
@@ -217,9 +217,9 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                             <ContentView>
                                 <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
                                 <StackLayout Orientation="Horizontal">
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.reply.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.retweet.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.favorite.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.reply.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.retweet.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.favorite.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
                                 </StackLayout>
                             </ContentView>
                         </StackLayout>
@@ -251,9 +251,9 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                             <ContentView>
                                 <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
                                 <StackLayout Orientation="Horizontal">
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.reply.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.retweet.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
-                                    <ImageButton Source="{utils:ImageFromResources M05TP01.Images.favorite.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.reply.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.retweet.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="{utils:ImageFromResources Tp3.Images.favorite.png}" HorizontalOptions="CenterAndExpand"></ImageButton>
                                 </StackLayout>
                             </ContentView>
                         </StackLayout>
@@ -270,5 +270,4 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
             </StackLayout>
         </ContentView>
     </Grid>
-
 </ContentPage>
