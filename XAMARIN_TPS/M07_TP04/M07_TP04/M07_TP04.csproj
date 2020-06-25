@@ -19,11 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\favorite.png" />
-    <Content Include="Images\pencil.png" />
-    <Content Include="Images\reply.png" />
-    <Content Include="Images\retweet.png" />
-    <Content Include="Images\search.png" />
+    <EmbeddedResource Include="Images\favorite.png" />
+    <EmbeddedResource Include="Images\pencil.png" />
+    <EmbeddedResource Include="Images\reply.png" />
+    <EmbeddedResource Include="Images\retweet.png" />
+    <EmbeddedResource Include="Images\search.png" />
   </ItemGroup>
 
   <ItemGroup>

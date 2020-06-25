@@ -1,6 +1,9 @@
-﻿using System;
+﻿using M07_TP04.Entities;
+using M07_TP04.Services;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
@@ -13,6 +16,7 @@ namespace M07_TP04.Models
         public Xamarin.Forms.Switch IsRemind { get; }
         public VisibilitySwitch VisibilitySwitch { get; }
         public ErrorForm Error { get; }
+        private ITwitterService twitterService;
 
         public LoginForm(Entry login, Entry password, Xamarin.Forms.Switch isRemind, View loginForm, View tweetForm, Label errorLabel, Button button)
         {
@@ -22,6 +26,7 @@ namespace M07_TP04.Models
             this.VisibilitySwitch = new VisibilitySwitch(loginForm, tweetForm);
             this.Error = new ErrorForm(errorLabel);
             button.Clicked += Button_Clicked;
+            twitterService = new TwitterService();
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -29,8 +34,16 @@ namespace M07_TP04.Models
             Debug.WriteLine("btn clicked");
             if (this.IsValid())
             {
-                this.Error.Hide();
-                this.VisibilitySwitch.Switch();
+                if (this.twitterService.authenticate(new User() { Login = this.Login.Text, Password = this.Password.Text }))
+                {
+                    this.Error.Hide();
+                    this.VisibilitySwitch.Switch();
+                }
+                else
+                {
+                    this.Error.Error = "Utilisateur non trouvé";
+                    this.Error.Display();
+                }
             }
             else
             {
