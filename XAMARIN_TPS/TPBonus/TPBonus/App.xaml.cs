@@ -10,7 +10,7 @@ namespace TPBonus
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new ConnectionPage());
         }
 
         protected override void OnStart()

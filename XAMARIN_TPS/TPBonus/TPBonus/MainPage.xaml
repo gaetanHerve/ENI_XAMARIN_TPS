@@ -34,7 +34,7 @@
                 <ImageButton Source="{utils:ImageFromResources TPBonus.Images.search.png}" Grid.Row="0" Grid.Column="2"></ImageButton>
             </Grid>
         </ContentView>
-        <ContentView x:Name="loginForm" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+        <!--<ContentView x:Name="loginForm" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
             <StackLayout>
                 <Label Text="Connexion à twitter" TextColor="Gray" HorizontalOptions="CenterAndExpand"></Label>
                 <Entry x:Name="login" Placeholder="Identifiant twitter" HorizontalOptions="FillAndExpand"/>
@@ -46,7 +46,7 @@
                 <Label x:Name="errorLabel"/>
                 <Button x:Name="connection" Text="SE CONNECTER" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
-        </ContentView>
+        </ContentView>-->
         <ContentView x:Name="tweetForm" IsVisible="false" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
             <!--<ScrollView HorizontalOptions="FillAndExpand">-->
             <ScrollView>

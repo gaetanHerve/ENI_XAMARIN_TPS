@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 using TPBonus.Entities;
 using TPBonus.Services;
 using Xamarin.Essentials;
@@ -15,25 +17,22 @@ namespace TPBonus.Models
         private readonly Entry login;
         private readonly Entry password;
         private readonly Xamarin.Forms.Switch isRemind;
-        private readonly VisibilitySwitch visibilitySwitch;
         private readonly ErrorForm error;
-
         private User user;
 
-        public LoginForm(Entry login, Entry password, Xamarin.Forms.Switch isRemind, View loginForm, View tweetForm, Label errorLabel, Button button)
+        public LoginForm(Entry login, Entry password, Xamarin.Forms.Switch isRemind, View loginForm, Label errorLabel, Button button)
         {
             this.twitterService = new TwitterService();
 
             this.login = login;
             this.password = password;
             this.isRemind = isRemind;
-            this.visibilitySwitch = new VisibilitySwitch(loginForm, tweetForm);
             this.error = new ErrorForm(errorLabel);
-            button.Clicked += Button_Clicked;
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        public Boolean AllowConnection()
         {
+            Boolean result = false;
             Debug.WriteLine("btn clicked");
 
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -43,7 +42,7 @@ namespace TPBonus.Models
                     if (twitterService.Authenticate(this.user))
                     {
                         this.error.Hide();
-                        this.visibilitySwitch.Switch();
+                        result = true;
                     }
                     else
                     {
@@ -61,6 +60,7 @@ namespace TPBonus.Models
                 this.error.Error = "Aucune connexion internet";
                 this.error.Display();
             }
+            return result;
         }
 
         public Boolean IsValid()
