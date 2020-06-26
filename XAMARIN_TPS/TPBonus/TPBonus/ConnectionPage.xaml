@@ -6,10 +6,16 @@
              mc:Ignorable="d"
              x:Class="TPBonus.ConnectionPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout x:Name="loginForm">
+            <Label Text="Connexion à twitter" TextColor="Gray" HorizontalOptions="CenterAndExpand"></Label>
+            <Entry x:Name="login" Placeholder="Identifiant twitter" HorizontalOptions="FillAndExpand"/>
+            <Entry x:Name="password" Placeholder="Mot de passe" IsPassword="True" HorizontalOptions="FillAndExpand"/>
+            <StackLayout Orientation="Horizontal">
+                <Switch x:Name="isRemind"/>
+                <Label Text="Mémoriser mes informations" TextColor="Gray" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <Label x:Name="errorLabel"/>
+            <Button x:Name="connection" Text="SE CONNECTER" HorizontalOptions="FillAndExpand" Clicked="Connection_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

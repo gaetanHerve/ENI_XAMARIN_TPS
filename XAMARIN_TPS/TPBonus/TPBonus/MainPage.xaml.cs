@@ -12,7 +12,6 @@ namespace TPBonus
         public MainPage()
         {
             InitializeComponent();
-            new LoginForm(this.login, this.password, this.isRemind, this.loginForm, this.tweetForm, this.errorLabel, this.connection);
         }
     }
 }
