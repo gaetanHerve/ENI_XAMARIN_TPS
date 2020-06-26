@@ -11,13 +11,12 @@ using Xamarin.Forms;
 
 namespace TPBonus.Models
 {
-    public class LoginForm /*: ContentPage*/
+    public class LoginForm
     {
         private readonly ITwitterService twitterService;
         private readonly Entry login;
         private readonly Entry password;
         private readonly Xamarin.Forms.Switch isRemind;
-        /*private readonly VisibilitySwitch visibilitySwitch;*/
         private readonly ErrorForm error;
         private User user;
 
@@ -29,10 +28,8 @@ namespace TPBonus.Models
             this.password = password;
             this.isRemind = isRemind;
             this.error = new ErrorForm(errorLabel);
-            /*button.Clicked += Button_Clicked;*/
         }
 
-        /*public async void Button_Clicked(object sender, EventArgs e)*/
         public Boolean AllowConnection()
         {
             Boolean result = false;
@@ -46,7 +43,6 @@ namespace TPBonus.Models
                     {
                         this.error.Hide();
                         result = true;
-                        /*await this.GoToTweets();*/
                     }
                     else
                     {
@@ -66,12 +62,6 @@ namespace TPBonus.Models
             }
             return result;
         }
-
-   /*     private async Task GoToTweets()
-        {
-            Debug.WriteLine("in GoToTweets()");
-            await Navigation.PushAsync(new TweetListPage());
-        }*/
 
         public Boolean IsValid()
         {
